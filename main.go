@@ -16,7 +16,7 @@ func init() {
 }
 
 func main() {
-	db, _ := gorm.Open(postgres.Open(fmt.Sprintf("postgresql://postgres:zmh630323@localhost:5432/zion_%d?sslmode=disable", caseNum)), &gorm.Config{})
+	db, _ := gorm.Open(postgres.Open(fmt.Sprintf("postgresql://postgres:123456@localhost:5432/zion_%d?sslmode=disable", caseNum)), &gorm.Config{})
 	err := CleanDB(db)
 	if err != nil {
 		panic(err)
@@ -62,6 +62,16 @@ func CleanDB(db *gorm.DB) error {
 	err = db.Migrator().DropTable(&models.AccumulatedRewards{})
 	if err != nil {
 		return fmt.Errorf("failed to auto drop AccumulatedRewards")
+	}
+
+	err = db.Migrator().DropTable(&models.CommunityRate{})
+	if err != nil {
+		return fmt.Errorf("failed to auto drop CommunityRate")
+	}
+
+	err = db.Migrator().DropTable(&models.GasFee{})
+	if err != nil {
+		return fmt.Errorf("failed to auto drop GasFee")
 	}
 
 	return nil

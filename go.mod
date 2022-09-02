@@ -23,4 +23,4 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 )
 
-replace github.com/polynetwork/distribute-check v1.0.0 => github.com/siovanus/distribute-check v0.0.0-20220824072520-6e042c4218c3
+replace github.com/polynetwork/distribute-check v1.0.0 => github.com/siovanus/distribute-check v0.0.0-20220902082413-b174cafd6d52
